@@ -1,0 +1,43 @@
+<idea-plugin>
+  <id>me.shifei.go.plugin.cross.build</id>
+  <name>go cross build</name>
+  <version>1.0</version>
+  <vendor email="wf1337@gmail.com" url="http://www.shifei.me">hoperuin</vendor>
+
+  <description><![CDATA[
+      Provider cross build for go ,support platforms linux and windows and macOS 64bit
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Provider cross build for go ,support platforms linux and windows and macOS 64bit
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.lang</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="linux64.build.action" class="me.shifei.go.plugin.cross.build.Linux64"
+            text="Go build linux64" description="Build for linux64">
+      <add-to-group group-id="GenerateGroup" anchor="last"/>
+    </action>
+    <action id="windows64.build.action" class="me.shifei.go.plugin.cross.build.Windows64"
+            text="Go build windows64" description="Build for windows64">
+      <add-to-group group-id="GenerateGroup" anchor="last"/>
+    </action>
+    <action id="macOS.build.action" class="me.shifei.go.plugin.cross.build.MacOS"
+            text="Go build macOS" description="Build for macOS">
+      <add-to-group group-id="GenerateGroup" anchor="last"/>
+    </action>
+  </actions>
+
+</idea-plugin>
