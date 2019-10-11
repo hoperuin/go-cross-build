@@ -33,7 +33,6 @@ public class Helper {
 
     private static Logger logger = Logger.getInstance(Helper.class);
     private static Map<String,String> sysEnvMap  = System.getenv();
-    private static String cmd = sysEnvMap.get("GOROOT") + File.separator + "bin"+File.separator+"go";
     private Helper(){}
 
     public static Project getProject(AnActionEvent e){
@@ -79,7 +78,7 @@ public class Helper {
         Helper.checkMainGo(classPath,project);
         Helper.deleteBin(project);
 
-        GeneralCommandLine generalCommandLine = new GeneralCommandLine(cmd);
+        GeneralCommandLine generalCommandLine = new GeneralCommandLine("go");
         generalCommandLine.withEnvironment(getEnv(os));
         generalCommandLine.withParameters("build",classPath);
         generalCommandLine.setCharset(Charset.forName("UTF-8"));
